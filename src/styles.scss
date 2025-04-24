@@ -398,74 +398,74 @@ a.feather-size {
 .login-form .main-wrapper {
   justify-content: center;
 }
-[data-theme="dark"] {
-  div.mat-mdc-select-panel.mat-mdc-select-panel {
-    background-color: #0a0a0a;
- }
- mat-option.mat-mdc-option.mdc-list-item {
-  background-color: #141432;
-}
-mat-option.mat-mdc-option .mdc-list-item__primary-text {
-  color: #97a2d2;
-}
-.mat-mdc-select-placeholder {
-  color: #D8DFEB !important
-}
-.mat-mdc-select-arrow{
-  color: #434952;
-}
-mat-select.custom-mat-select .mat-mdc-select-trigger{
-  border: 1px solid #222224 !important;
-}
-.bs-datepicker{
-  box-shadow: none;
-}
-.bs-datepicker-container{
-  background-color: #141432;
-}
-.dataTables_length label .custom-select{
-  border: 1px solid #222224 !important;
-}
-.no-sort .checkmarks{
-  background-color: #0D0D0D;
-}
-.checkboxs input ~ .checkmarks{
-  border: 1px solid #222224 !important;
-}
-.pagination{
-  .page-item{
-    background-color: #141432;
-  }
-}
-app-admin .ProseMirror{
-  background-color: #0D0D0D;
-}
-.NgxEditor__MenuBar{
-  background-color: #0D0D0D !important;
-  border: 1px solid #222224 !important;
-}
-.summer-group{
-  border: 1px solid #222224 !important;
-}
-.sidebar {
-  .sidebar-menu {
-    > ul {
-      li {
-        &.submenu {
-          ul {
-            li {
-              a {
-                color: #D8DFEB !important;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
+// [data-theme="dark"] {
+//   div.mat-mdc-select-panel.mat-mdc-select-panel {
+//     background-color: #0a0a0a;
+//  }
+//  mat-option.mat-mdc-option.mdc-list-item {
+//   background-color: #141432;
+// }
+// mat-option.mat-mdc-option .mdc-list-item__primary-text {
+//   color: #97a2d2;
+// }
+// .mat-mdc-select-placeholder {
+//   color: #D8DFEB !important
+// }
+// .mat-mdc-select-arrow{
+//   color: #434952;
+// }
+// mat-select.custom-mat-select .mat-mdc-select-trigger{
+//   border: 1px solid #222224 !important;
+// }
+// .bs-datepicker{
+//   box-shadow: none;
+// }
+// .bs-datepicker-container{
+//   background-color: #141432;
+// }
+// .dataTables_length label .custom-select{
+//   border: 1px solid #222224 !important;
+// }
+// .no-sort .checkmarks{
+//   background-color: #0D0D0D;
+// }
+// .checkboxs input ~ .checkmarks{
+//   border: 1px solid #222224 !important;
+// }
+// .pagination{
+//   .page-item{
+//     background-color: #141432;
+//   }
+// }
+// app-admin .ProseMirror{
+//   background-color: #0D0D0D;
+// }
+// .NgxEditor__MenuBar{
+//   background-color: #0D0D0D !important;
+//   border: 1px solid #222224 !important;
+// }
+// .summer-group{
+//   border: 1px solid #222224 !important;
+// }
+// .sidebar {
+//   .sidebar-menu {
+//     > ul {
+//       li {
+//         &.submenu {
+//           ul {
+//             li {
+//               a {
+//                 color: #D8DFEB !important;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-}
+// }
 
 .pickr .pcr-button::before {
   position: absolute;
@@ -1084,116 +1084,116 @@ mat-slider {
 .p-stepper-separator{
   background: #D4483B ;
 }
-.dark-mode{
-  .p-chips{
-    border: 1px solid #1F2228;
-  }
-  .p-datepicker{
-    background: #0D0D0D;
-    border: 1px solid #1F2228
-  }
-  .p-datepicker-header{
-    background: #0D0D0D;
-  }
-  .p-inlines .p-datepicker-title .p-link{
-    color: #D8DFEE;
-  }
-  .p-datepicker table th > span {
-    color: #D8DFEE;
-}
-.p-inlines .p-datepicker table td{
-  color: #777;
-}
-.NgxEditor__Content{
-  background: #0D0D0D;
-  border: 1px solid #1F2228
-}
-.p-chips ul{
-  background: #0D0D0D;
-  border: 1px solid #1F2228
-}
-.p-stepper .p-stepper-header .p-stepper-action{
-  background: #0D0D0D;
-  border: 1px solid #1F2228;
-}
-.p-stepper-title{
-  color: #D8DFEE;
-}
-.p-stepper-panels{
-  background: #0D0D0D;
-  border: 1px solid #1F2228;
-}
-.p-element[_ngcontent-ng-c1554889767]{
-    border-radius: 5px;
-}
-.timepick .p-inputtext{
-  background: #0D0D0D;
-  border: 1px solid #1F2228;
-}
-.col-form-label{
-  color: #D8DFEE;
-}
-  .basic-box[_ngcontent-ng-c2935039459]{
-      background: #0D0D0D;
-      border: 1px solid #1F2228;
-      color: #D8DFEE;
-      box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
-      &:hover{
-        box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
-      }
-  }
-  .example-box1[_ngcontent-ng-c2935039459]{
-    background: #0D0D0D;
-    border: 1px solid #1F2228;
-    color: #D8DFEE;
-    box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
-    &:hover{
-      box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
-    }
-}
-.example-box2[_ngcontent-ng-c2935039459]{
-  background: #0D0D0D;
-  border: 1px solid #1F2228;
-  color: #D8DFEE;
-  box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
-  &:hover{
-    box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
-  }
-}
-.example-box3[_ngcontent-ng-c2935039459]{
-  background: #0D0D0D;
-  border: 1px solid #1F2228;
-  color: #D8DFEE;
-  box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
-  &:hover{
-    box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
-  }
-}
-.example-box4[_ngcontent-ng-c2935039459]{
-  background: #0D0D0D;
-  border: 1px solid #1F2228;
-  color: #D8DFEE;
-  box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
-  &:hover{
-    box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
-  }
-}
-.example-box5[_ngcontent-ng-c2935039459]{
-  background: #0D0D0D;
-  border: 1px solid #1F2228;
-  color: #D8DFEE;
-  box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
-  &:hover{
-    box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
-  }
-}
-.bs-datepicker-container {
-  background-color: #0D0D0D;
-} 
-.NgxEditor__MenuBar {
-  background: #17222C !important;
-}
-}
+// .dark-mode{
+//   .p-chips{
+//     border: 1px solid #1F2228;
+//   }
+//   .p-datepicker{
+//     background: #0D0D0D;
+//     border: 1px solid #1F2228
+//   }
+//   .p-datepicker-header{
+//     background: #0D0D0D;
+//   }
+//   .p-inlines .p-datepicker-title .p-link{
+//     color: #D8DFEE;
+//   }
+//   .p-datepicker table th > span {
+//     color: #D8DFEE;
+// }
+// .p-inlines .p-datepicker table td{
+//   color: #777;
+// }
+// .NgxEditor__Content{
+//   background: #0D0D0D;
+//   border: 1px solid #1F2228
+// }
+// .p-chips ul{
+//   background: #0D0D0D;
+//   border: 1px solid #1F2228
+// }
+// .p-stepper .p-stepper-header .p-stepper-action{
+//   background: #0D0D0D;
+//   border: 1px solid #1F2228;
+// }
+// .p-stepper-title{
+//   color: #D8DFEE;
+// }
+// .p-stepper-panels{
+//   background: #0D0D0D;
+//   border: 1px solid #1F2228;
+// }
+// .p-element[_ngcontent-ng-c1554889767]{
+//     border-radius: 5px;
+// }
+// .timepick .p-inputtext{
+//   background: #0D0D0D;
+//   border: 1px solid #1F2228;
+// }
+// .col-form-label{
+//   color: #D8DFEE;
+// }
+//   .basic-box[_ngcontent-ng-c2935039459]{
+//       background: #0D0D0D;
+//       border: 1px solid #1F2228;
+//       color: #D8DFEE;
+//       box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
+//       &:hover{
+//         box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
+//       }
+//   }
+//   .example-box1[_ngcontent-ng-c2935039459]{
+//     background: #0D0D0D;
+//     border: 1px solid #1F2228;
+//     color: #D8DFEE;
+//     box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
+//     &:hover{
+//       box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
+//     }
+// }
+// .example-box2[_ngcontent-ng-c2935039459]{
+//   background: #0D0D0D;
+//   border: 1px solid #1F2228;
+//   color: #D8DFEE;
+//   box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
+//   &:hover{
+//     box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
+//   }
+// }
+// .example-box3[_ngcontent-ng-c2935039459]{
+//   background: #0D0D0D;
+//   border: 1px solid #1F2228;
+//   color: #D8DFEE;
+//   box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
+//   &:hover{
+//     box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
+//   }
+// }
+// .example-box4[_ngcontent-ng-c2935039459]{
+//   background: #0D0D0D;
+//   border: 1px solid #1F2228;
+//   color: #D8DFEE;
+//   box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
+//   &:hover{
+//     box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
+//   }
+// }
+// .example-box5[_ngcontent-ng-c2935039459]{
+//   background: #0D0D0D;
+//   border: 1px solid #1F2228;
+//   color: #D8DFEE;
+//   box-shadow: 0px 1px 5px 1px rgb(243, 243, 243);
+//   &:hover{
+//     box-shadow: 0px 4px 54px 0px rgba(224, 224, 224, 0.2509803922);
+//   }
+// }
+// .bs-datepicker-container {
+//   background-color: #0D0D0D;
+// } 
+// .NgxEditor__MenuBar {
+//   background: #17222C !important;
+// }
+// }
 
 .iti {
   display: block;
