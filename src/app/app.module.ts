@@ -15,6 +15,10 @@ import { RegisterTouristComponent } from "./auth/register-tourist/register-touri
 import { RegisterTouristEmailComponent } from "./auth/register-tourist-email/register-tourist-email.component";
 import { RegisterProviderComponent } from "./auth/register-provider/register-provider.component";
 import { RegisterProviderEmailComponent } from "./auth/register-provider-email/register-provider-email.component";
+import { ChangePasswordComponent } from "./auth/change-password/change-password.component";
+import { NgScrollbarModule } from "ngx-scrollbar";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,12 +29,15 @@ import { RegisterProviderEmailComponent } from "./auth/register-provider-email/r
     RegisterTouristEmailComponent,
     RegisterProviderComponent,
     RegisterProviderEmailComponent,
+    ChangePasswordComponent,
+
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     SharedModule,
     AppRoutingModule,
+    NgScrollbarModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

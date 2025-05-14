@@ -6,6 +6,8 @@ import { LoginProviderComponent } from "./auth/login-provider/login-provider.com
 import { RegisterTouristEmailComponent } from "./auth/register-tourist-email/register-tourist-email.component";
 import { RegisterProviderComponent } from "./auth/register-provider/register-provider.component";
 import { RegisterProviderEmailComponent } from "./auth/register-provider-email/register-provider-email.component";
+import { ChangePasswordComponent } from "./auth/change-password/change-password.component";
+import { ForgotPasswordComponent } from "./auth/forgot-password/forgot-password.component";
 
 const routes: Routes = [
   {
@@ -13,10 +15,7 @@ const routes: Routes = [
     loadChildren: () =>
       import("./tabs/tabs.module").then((m) => m.TabsPageModule),
   },
-  {
-    path: "login-tourist",
-    component: LoginTouristComponent,
-  },
+
   {
     path: "login-provider",
     component: LoginProviderComponent,
@@ -37,6 +36,19 @@ const routes: Routes = [
     path: "register-provider-email",
     component: RegisterProviderEmailComponent,
   },
+  {
+    path: "change-password",
+    component: ChangePasswordComponent,
+  },
+  {
+    path: "forgot-password",
+    component: ForgotPasswordComponent,
+  },
+  {
+    path: "login",
+    component: LoginTouristComponent,
+  },
+  
 ];
 @NgModule({
   imports: [

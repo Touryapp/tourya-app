@@ -123,7 +123,7 @@ export class RegisterTouristComponent implements OnInit, OnDestroy {
       this.ngZone.run(() => {
         setTimeout(() => {
           this.loading = false;
-          this.router.navigate(["/"]);
+          this.router.navigate([routes.myProfile]);
         }, 3000);
       });
     } else {
