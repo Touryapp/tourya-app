@@ -2,7 +2,8 @@ import { Component, NgZone, Renderer2 } from "@angular/core";
 import { routes } from "../../shared/routes/routes";
 import { Router } from "@angular/router";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-// import { AuthService } from "../../core/services/auth.service";
+import { AuthService } from "../../core/services/auth.service";
+import { SocialLoginDto } from "../../shared/dto/social-login.dto";
 
 @Component({
   selector: "app-login-tourist",
@@ -28,7 +29,7 @@ export class LoginTouristComponent {
     private router: Router,
     private renderer: Renderer2,
     private ngZone: NgZone,
-    // private authService: AuthService
+    private authService: AuthService
   ) {
     this.loginTouristForm = new FormGroup({
       email: new FormControl("", [Validators.required, Validators.email]),
@@ -50,126 +51,131 @@ export class LoginTouristComponent {
     this.renderer.removeClass(document.body, "bg-light-200");
   }
 
-  // submitForm() {
-  //   this.loading = true;
-  //   this.errorMessage = "";
+  submitForm() {
+    this.loading = true;
+    this.errorMessage = "";
 
-  //   if (this.loginTouristForm.valid) {
-  //     const data = {
-  //       email: this.loginTouristForm.get("email")?.value,
-  //       password: this.loginTouristForm.get("password")?.value,
-  //     };
+    if (this.loginTouristForm.valid) {
+      const data = {
+        email: this.loginTouristForm.get("email")?.value,
+        password: this.loginTouristForm.get("password")?.value,
+      };
 
-  //     this.authService.login(data).subscribe({
-  //       next: (response) => {
-  //         this.loading = false;
+      this.authService.login(data).subscribe({
+        next: (response) => {
+          this.loading = false;
 
-  //         if (response && response.token) {
-  //           this.authService.setToken(response.token);
-  //           this.authService.setUser({
-  //             fullName: response.fullName,
-  //             email: response.email,
-  //             roles: response.roles,
-  //           });
-  //           this.router.navigate(["home"]);
-  //         } else {
-  //           this.errorMessage =
-  //             "Ha ocurrido un error, por favor intente de nuevo";
-  //         }
-  //       },
-  //       error: (err) => {
-  //         this.loading = false;
+          if (response && response.token) {
+            this.authService.setToken(response.token);
+            this.authService.setUser({
+              fullName: response.fullName,
+              email: response.email,
+              roles: response.roleList,
+            });
+            this.router.navigate(["home"]);
+          } else {
+            this.errorMessage =
+              "Ha ocurrido un error, por favor intente de nuevo";
+          }
+        },
+        error: (err) => {
+          this.loading = false;
+          this.errorMessage =
+            "Ha ocurrido un error, por favor intente de nuevo";
+        },
+      });
+    } else {
+      this.loginTouristForm.markAllAsTouched();
+      this.loading = false;
+    }
+  }
 
-  //         this.errorMessage =
-  //           "Ha ocurrido un error, por favor intente de nuevo";
-  //       },
-  //     });
-  //   } else {
-  //     this.loginTouristForm.markAllAsTouched();
-  //     this.loading = false;
-  //   }
-  // }
+  // Método para iniciar sesión con Google
+  async signInWithGoogle(): Promise<void> {
+    try {
+      this.googleLoading = true;
+      const result = await this.authService.loginWithGoogle();
+      
+      // Obtener datos del usuario
+      const user = result.user;
+      console.log('Usuario de Google:', user);
+      
+       // Obtener token de autenticación
+       const token = await user.getIdToken();
+       console.log('Token:', token);
+      // Datos básicos del usuario que podemos usar
+      const userData:SocialLoginDto = {
+        firstname: user.displayName || '',
+        lastname: '',
+        email: user.email || '',
+        uuidSocial: user.uid || '',
+      };
+      
+      await this.authService.authenticateSocial(userData).subscribe({
+        next: (response) => {
+          console.log('Respuesta de Google:', response)
+          this.authService.setToken(response.token);
+          this.authService.setUser({
+            fullName: response.fullName,
+            email: response.email,
+            roles: response.roleList,
+          });
+          this.googleLoading = false;
+          this.router.navigate(["home"]);
+        },
+        error: (err) => {
+          console.error('Error en autenticación con Google:', err);
+          this.googleLoading = false;
+        }
+      });
+    } catch (error) {
+      console.error('Error en autenticación con Google:', error);
+      this.googleLoading = false;
+    }
+  }
 
-  // // Método para iniciar sesión con Google
-  // async signInWithGoogle(): Promise<void> {
-  //   try {
-  //     this.googleLoading = true;
-  //     const result = await this.authService.loginWithGoogle();
+  // Método para iniciar sesión con Facebook
+  async signInWithFacebook(): Promise<void> {
+    try {
+      this.facebookLoading = true;
+      const result = await this.authService.loginWithFacebook();
       
-  //     // Obtener datos del usuario
-  //     const user = result.user;
-  //     console.log('Usuario de Google:', user);
+      // Obtener datos del usuario
+      const user = result.user;
+      console.log('Usuario de Facebook:', user);
+      // Obtener token de autenticación
+      const token = await user.getIdToken();
+      console.log('Token de Facebook:', token);
+      // Datos básicos del usuario
+      const userData:SocialLoginDto = {
+        firstname: user.displayName || '',
+        lastname: '',
+        email: user.email || '',
+        uuidSocial: user.uid || '',
+      };
       
-  //      // Obtener token de autenticación
-  //      const token = await user.getIdToken();
-  //      console.log('Token:', token);
-  //     // Datos básicos del usuario que podemos usar
-  //     const userData = {
-  //       displayName: user.displayName,
-  //       email: user.email,
-  //       photoURL: user.photoURL,
-  //       uid: user.uid,
-  //       idToken: token,
-  //     };
+      await this.authService.authenticateSocial(userData).subscribe({
+        next: (response) => {
+          // Navegar a la página principal
+          console.log('Respuesta de Facebook:', response)
+          this.authService.setToken(response.token);
+          this.authService.setUser({
+            fullName: response.fullName,
+            email: response.email,
+            roles: response.roleList,
+          });
+          this.facebookLoading = false;
+          this.router.navigate(["home"]);
+        },
+        error: (err) => {
+          console.error('Error en autenticación con Facebook:', err);
+          this.facebookLoading = false;
+        }
+      });
       
-  //     await this.authService.authenticateGoogle({ idToken: token }).subscribe({
-  //       next: (response) => {
-  //         console.log('Respuesta de Google:', response)
-  //         this.ngZone.run(() => {
-  //           this.googleLoading = false;
-  //           this.router.navigate(["home"]);
-  //         });
-  //       },
-  //       error: (err) => {
-  //         console.error('Error en autenticación con Google:', err);
-  //         this.googleLoading = false;
-  //       }
-  //     });
-  //   } catch (error) {
-  //     console.error('Error en autenticación con Google:', error);
-  //     this.googleLoading = false;
-  //   }
-  // }
-
-  // // Método para iniciar sesión con Facebook
-  // async signInWithFacebook(): Promise<void> {
-  //   try {
-  //     this.facebookLoading = true;
-  //     const result = await this.authService.loginWithFacebook();
-      
-  //     // Obtener datos del usuario
-  //     const user = result.user;
-  //     console.log('Usuario de Facebook:', user);
-  //     // Obtener token de autenticación
-  //     const token = await user.getIdToken();
-  //     console.log('Token de Facebook:', token);
-  //     // Datos básicos del usuario
-  //     const userData = {
-  //       displayName: user.displayName,
-  //       email: user.email,
-  //       photoURL: user.photoURL,
-  //       uid: user.uid,
-  //       idToken: token,
-  //     };
-      
-  //     await this.authService.authenticateFacebook({ idToken: token }).subscribe({
-  //       next: (response) => {
-  //         // Navegar a la página principal
-  //         console.log('Respuesta de Facebook:', response)
-  //         this.ngZone.run(() => {
-  //           this.facebookLoading = false;
-  //           this.router.navigate(["home"]);
-  //         });
-  //       },
-  //       error: (err) => {
-  //         console.error('Error en autenticación con Facebook:', err);
-  //         this.facebookLoading = false;
-  //       }
-  //     });
-      
-  //   } catch (error) {
-  //     console.error('Error en autenticación con Facebook:', error);
-  //     this.facebookLoading = false;
-  //   }
-  // }
+    } catch (error) {
+      console.error('Error en autenticación con Facebook:', error);
+      this.facebookLoading = false;
+    }
+  }
 }

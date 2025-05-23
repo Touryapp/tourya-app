@@ -9,26 +9,28 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { SharedModule } from "./shared/shared-module";
 import { LoginTouristComponent } from "./auth/login-tourist/login-tourist.component";
-import { LoginProviderComponent } from "./auth/login-provider/login-provider.component";
 import { ForgotPasswordComponent } from "./auth/forgot-password/forgot-password.component";
 import { RegisterTouristComponent } from "./auth/register-tourist/register-tourist.component";
 import { RegisterTouristEmailComponent } from "./auth/register-tourist-email/register-tourist-email.component";
-import { RegisterProviderComponent } from "./auth/register-provider/register-provider.component";
-import { RegisterProviderEmailComponent } from "./auth/register-provider-email/register-provider-email.component";
 import { ChangePasswordComponent } from "./auth/change-password/change-password.component";
 import { NgScrollbarModule } from "ngx-scrollbar";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { environment } from "../environments/environment";
+import { AuthInterceptor } from "./core/interceptors/auth.interceptor";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
 
+// Inicializar Firebase
+const app = initializeApp(environment.firebaseConfig);
+export const auth = getAuth(app);
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginTouristComponent,
-    LoginProviderComponent,
     ForgotPasswordComponent,
     RegisterTouristComponent,
     RegisterTouristEmailComponent,
-    RegisterProviderComponent,
-    RegisterProviderEmailComponent,
     ChangePasswordComponent,
 
   ],
@@ -42,6 +44,11 @@ import { NgScrollbarModule } from "ngx-scrollbar";
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent],
 })

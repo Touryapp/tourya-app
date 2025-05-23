@@ -2,10 +2,7 @@ import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 import { RegisterTouristComponent } from "./auth/register-tourist/register-tourist.component";
 import { LoginTouristComponent } from "./auth/login-tourist/login-tourist.component";
-import { LoginProviderComponent } from "./auth/login-provider/login-provider.component";
 import { RegisterTouristEmailComponent } from "./auth/register-tourist-email/register-tourist-email.component";
-import { RegisterProviderComponent } from "./auth/register-provider/register-provider.component";
-import { RegisterProviderEmailComponent } from "./auth/register-provider-email/register-provider-email.component";
 import { ChangePasswordComponent } from "./auth/change-password/change-password.component";
 import { ForgotPasswordComponent } from "./auth/forgot-password/forgot-password.component";
 
@@ -17,24 +14,12 @@ const routes: Routes = [
   },
 
   {
-    path: "login-provider",
-    component: LoginProviderComponent,
-  },
-  {
     path: "register-tourist",
     component: RegisterTouristComponent,
   },
   {
     path: "register-tourist-email",
     component: RegisterTouristEmailComponent,
-  },
-  {
-    path: "register-provider",
-    component: RegisterProviderComponent,
-  },
-  {
-    path: "register-provider-email",
-    component: RegisterProviderEmailComponent,
   },
   {
     path: "change-password",

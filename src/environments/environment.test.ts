@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  apiUrl: "http://44.203.38.85:8088/api/v1",
-  apiUrlBack:"http://44.203.38.85:8088/api/v1",
+  apiUrl:'',
+  baseUrl:'',
   firebaseConfig : {
     apiKey: "AIzaSyCJyNkzo4e80-G0eBCUrIBDt6bbJ8Osp_g",
     authDomain: "tourya-169d6.firebaseapp.com",
