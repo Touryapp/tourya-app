@@ -10,7 +10,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'home-clients',
+        path: 'home',
         loadChildren: () => import('../pages/clients/home-clients/home-clients.module').then(m => m.HomeClientsModule)
       },
       {
@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/home-clients',
+    redirectTo: '/tabs/home',
     pathMatch: 'full'
   }
 ];

@@ -72,7 +72,7 @@ export class LoginTouristComponent {
               email: response.email,
               roles: response.roleList,
             });
-            this.router.navigate(["home"]);
+            this.router.navigate(["tabs/home"]);
           } else {
             this.errorMessage =
               "Ha ocurrido un error, por favor intente de nuevo";
